@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 import Counter from './components/Counter'
+import Notes from './components/Notes'
+import Clock from './components/Clock'
 
 
 
@@ -11,6 +13,14 @@ const router = createBrowserRouter([
   {
     path: "/counter",
     element: <Counter />,
+  },
+  {
+    path: "/notes",
+    element: <Notes />,
+  },
+   {
+    path: "/clock",
+    element: <Clock />,
   },
  ])
 
