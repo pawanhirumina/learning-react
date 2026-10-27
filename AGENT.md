@@ -1,0 +1,1 @@
+for umfamiliar features don't write from scratch. first search on github for open source projects ,compare approcthes , then get started 
