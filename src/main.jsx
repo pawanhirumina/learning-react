@@ -7,6 +7,7 @@ import Notes from "./components/Notes";
 import Clock from "./components/Clock";
 import PasswordShowHide from "./components/PasswordShowHide";
 import SignUpForm from "./components/SignUpForm";
+import OtpPin from "./components/OtpPin";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/counter", element: <Counter /> },
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   { path: "/clock", element: <Clock /> },
   { path: "/signup", element: <SignUpForm /> },
   { path: "/password", element: <PasswordShowHide /> },
+  { path: "/otp", element: <OtpPin /> },
 ]);
 export function App() {
   const apps = [
@@ -31,6 +33,12 @@ export function App() {
       name: "Signup Form",
       emoji: "➡️",
       desc: "form validation",
+    },
+    {
+      path: "/otp",
+      name: "Otp Pin",
+      emoji: "➡️",
+      desc: "otp pin input boxes",
     },
   ];
   return (
