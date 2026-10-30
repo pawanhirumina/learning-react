@@ -4,28 +4,24 @@ export default function OtpPin() {
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const inputRefs = useRef([]);
 
-  // validation - same pattern as your signup
   const isComplete = otp.every((digit) => digit !== "");
   const otpValue = otp.join("");
 
   function handleChange(e, index) {
     const value = e.target.value;
 
-    // only allow numbers - your regex practice
     if (!/^[0-9]?$/.test(value)) return;
 
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
 
-    // auto-focus next input if typed
     if (value && index < 5) {
       inputRefs.current[index + 1]?.focus();
     }
   }
 
   function handleKeyDown(e, index) {
-    // if backspace on empty, go back
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
@@ -34,7 +30,7 @@ export default function OtpPin() {
   function handlePaste(e) {
     e.preventDefault();
     const paste = e.clipboardData.getData("text").slice(0, 6);
-    if (!/^[0-9]+$/.test(paste)) return; // only numbers
+    if (!/^[0-9]+$/.test(paste)) return;
 
     const newOtp = paste
       .split("")

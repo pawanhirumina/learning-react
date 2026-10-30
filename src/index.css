@@ -44,7 +44,6 @@
     --radius-xl: calc(var(--radius) * 1.4);
 }
 
-/* GITHUB LIGHT - #ffffff, #f6f8fa */
 :root {
     --background: #ffffff;
     --foreground: #1f2328;
