@@ -1,11 +1,18 @@
-import "dotenv/config";
+import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
+
+dotenv.config({ path: [".env.local", ".env"], quiet: true });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 const AI_API_URL = (process.env.AI_API_URL || "https://api.openai.com/v1").replace(/\/$/, "");
-const AI_MODEL = process.env.AI_MODEL || "gpt-4o-mini";
+const AI_ENDPOINT = AI_API_URL.endsWith("/chat/completions")
+  ? AI_API_URL
+  : `${AI_API_URL}/chat/completions`;
+const AI_MODEL =
+  process.env.AI_MODEL ||
+  (AI_API_URL.includes("groq.com") ? "openai/gpt-oss-120b" : "gpt-4o-mini");
 
 app.use(cors());
 app.use(express.json());
@@ -26,7 +33,7 @@ app.post("/api/ask", async (req, res) => {
   }
 
   try {
-    const response = await fetch(`${AI_API_URL}/chat/completions`, {
+    const response = await fetch(AI_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

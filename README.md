@@ -83,9 +83,14 @@ Optional environment variables:
 | Variable      | Default                     | Purpose                              |
 | ------------- | --------------------------- | ------------------------------------ |
 | `AI_API_KEY`  | none (required)             | API key for the AI provider          |
-| `AI_API_URL`  | `https://api.openai.com/v1` | Base URL of an OpenAI-compatible API |
+| `AI_API_URL`  | `https://api.openai.com/v1` | Base URL or full chat completions URL |
 | `AI_MODEL`    | `gpt-4o-mini`               | Model used for answers               |
 | `PORT`        | `3001`                      | Port for the local API server        |
 | `VITE_AI_API_URL` | `/api/ask`              | Frontend override for the API route  |
 
-For local development you can put these in a `.env` file at the project root. It is ignored by git. To use a different AI provider, point `AI_API_URL` at its OpenAI-compatible endpoint and set the matching model name.
+For local development you can put these in `.env.local` or `.env` at the project root. Both are ignored by git. To use Groq, set:
+
+```bash
+AI_API_URL=https://api.groq.com/openai/v1
+AI_MODEL=openai/gpt-oss-120b
+```
