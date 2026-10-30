@@ -2,46 +2,62 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Sparkles, Loader2 } from "lucide-react";
 
+const AI_ENDPOINT = import.meta.env.VITE_AI_API_URL || "/api/ask";
+
 export default function Faq() {
   const [openId, setOpenId] = useState(null);
   const [aiQuery, setAiQuery] = useState("");
   const [aiAnswer, setAiAnswer] = useState(null);
+  const [aiError, setAiError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [triggerFetch, setTriggerFetch] = useState(false);
+  const [request, setRequest] = useState(null);
 
   const handleAsk = () => {
-    if (!aiQuery.trim()) return;
+    const query = aiQuery.trim();
+    if (!query) return;
     setOpenId("ai");
-    setTriggerFetch(true);
+    setRequest({ query, id: Date.now() });
   };
 
   useEffect(() => {
-    if (!triggerFetch) return;
+    if (!request) return;
+
     const controller = new AbortController();
-    const fetchAi = async () => {
+
+    async function fetchAnswer() {
       setLoading(true);
       setAiAnswer(null);
+      setAiError("");
+
       try {
-        const res = await fetch("/api/ask", {
+        const res = await fetch(AI_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: aiQuery }),
+          body: JSON.stringify({ query: request.query }),
           signal: controller.signal,
         });
-        const data = await res.json();
-        setAiAnswer(data.answer);
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          throw new Error(data.error || "Failed to get answer");
+        }
+
+        setAiAnswer(data.answer || "No answer returned");
       } catch (err) {
         if (err.name !== "AbortError") {
-          setAiAnswer("Failed to get answer");
+          setAiError(err.message || "Failed to get answer");
         }
       } finally {
-        setLoading(false);
-        setTriggerFetch(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
-    };
-    fetchAi();
+    }
+
+    fetchAnswer();
+
     return () => controller.abort();
-  }, [triggerFetch, aiQuery]);
+  }, [request]);
 
   const faqs = [
     {
@@ -125,12 +141,12 @@ export default function Faq() {
 
             <button
               onClick={() => {
-                if (aiQuery.trim() && aiAnswer) {
-                  setOpenId(openId === "ai" ? null : "ai");
+                if (openId === "ai") {
+                  setOpenId(null);
                 } else if (aiQuery.trim()) {
                   handleAsk();
                 } else {
-                  setOpenId(openId === "ai" ? null : "ai");
+                  setOpenId("ai");
                 }
               }}
               className="p-1 cursor-pointer"
@@ -155,6 +171,8 @@ export default function Faq() {
                     <div className="flex items-center gap-2 text-sm text-zinc-400">
                       <Loader2 size={14} className="animate-spin" /> Thinking...
                     </div>
+                  ) : aiError ? (
+                    <p className="text-red-400 text-sm leading-relaxed">{aiError}</p>
                   ) : aiAnswer ? (
                     <p className="text-slate-300 text-sm leading-relaxed">
                       {aiAnswer}

@@ -55,6 +55,8 @@ pnpm lint      # run ESLint
 ```text
 .
 ├── public/                 # Static assets
+├── server/
+│   └── index.js            # Express API used by the AI FAQ
 ├── src/
 │   ├── components/         # Individual React components
 │   ├── index.css           # Tailwind setup and theme tokens
@@ -66,6 +68,24 @@ pnpm lint      # run ESLint
 
 ## AI FAQ backend
 
-The FAQ page includes an "Ask AI" field that sends a `POST` request to `/api/ask` with a `{ "query": "..." }` body and expects a JSON response containing an `answer` field.
+The FAQ page includes an "Ask AI" field. It sends a `POST` request to `/api/ask` with `{ "query": "..." }` and expects `{ "answer": "..." }` back. A small Express server is included in `server/index.js` and calls an OpenAI-compatible chat completions API.
 
-During development, Vite proxies `/api` requests to `http://localhost:3001`, so the backend needs to run there. Without it, the FAQ form will display a generic failure message while the rest of the app works normally.
+Start the server in a second terminal:
+
+```bash
+AI_API_KEY=your-key pnpm server
+```
+
+Then keep the Vite dev server running with `pnpm dev`. Vite proxies `/api` requests to `http://localhost:3001`.
+
+Optional environment variables:
+
+| Variable      | Default                     | Purpose                              |
+| ------------- | --------------------------- | ------------------------------------ |
+| `AI_API_KEY`  | none (required)             | API key for the AI provider          |
+| `AI_API_URL`  | `https://api.openai.com/v1` | Base URL of an OpenAI-compatible API |
+| `AI_MODEL`    | `gpt-4o-mini`               | Model used for answers               |
+| `PORT`        | `3001`                      | Port for the local API server        |
+| `VITE_AI_API_URL` | `/api/ask`              | Frontend override for the API route  |
+
+For local development you can put these in a `.env` file at the project root. It is ignored by git. To use a different AI provider, point `AI_API_URL` at its OpenAI-compatible endpoint and set the matching model name.

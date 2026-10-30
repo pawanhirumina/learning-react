@@ -11,6 +11,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "server": "node server/index.js",
     "preview": "vite preview"
   },
   "dependencies": {
