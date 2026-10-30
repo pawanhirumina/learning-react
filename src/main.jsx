@@ -8,6 +8,7 @@ import Clock from "./components/Clock";
 import PasswordShowHide from "./components/PasswordShowHide";
 import SignUpForm from "./components/SignUpForm";
 import OtpPin from "./components/OtpPin";
+import Faq from "./components/Faq";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/counter", element: <Counter /> },
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
   { path: "/signup", element: <SignUpForm /> },
   { path: "/password", element: <PasswordShowHide /> },
   { path: "/otp", element: <OtpPin /> },
+  { path: "/faq", element: <Faq /> },
 ]);
 export function App() {
   const apps = [
@@ -39,6 +41,12 @@ export function App() {
       name: "Otp Pin",
       emoji: "➡️",
       desc: "otp pin input boxes",
+    },
+    {
+      path: "/faq",
+      name: "Faq Component",
+      emoji: "➡️",
+      // desc: "otp pin input boxes",
     },
   ];
   return (
