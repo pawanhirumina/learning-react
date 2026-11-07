@@ -9,6 +9,7 @@ import PasswordShowHide from "./components/PasswordShowHide";
 import SignUpForm from "./components/SignUpForm";
 import OtpPin from "./components/OtpPin";
 import Faq from "./components/Faq";
+import CounterAnimated from "./components/CounterAnimated";
 import KanbanBoard from "./components/KanbanBoard";
 import FetchData from "./components/FetchData";
 const router = createBrowserRouter([
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   { path: "/faq", element: <Faq /> },
   // { path: "/kanban", element: <KanbanBoard /> },
   // { path: "/datafetch", element: <FetchData /> },
+  { path: "/counter-animated", element: <CounterAnimated /> },
 ]);
 
 const links = [
@@ -32,8 +34,9 @@ const links = [
   { link: "/password", text: "Password Show/Hide" },
   { link: "/otp", text: "Otp Pin" },
   { link: "/faq", text: "Ai Powerd Faq Component" },
-  { link: "/kanban", text: "Kanban Board" },
-  { link: "/datafetch", text: "Fetch Data" },
+  // { link: "/kanban", text: "Kanban Board" },
+  // { link: "/datafetch", text: "Fetch Data" },
+    { link: "/counter-animated", text: "Counter Animated" },
 ];
 
 export function App() {
@@ -44,7 +47,7 @@ export function App() {
         {links.map((l) => (
           <div key={l.link}>
             <Link
-              className="w-full inline-block px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-md transition-colors"
+              className="w-full inline-block  rounded-md transition-colors"
               to={l.link}
             >
               {l.text}
