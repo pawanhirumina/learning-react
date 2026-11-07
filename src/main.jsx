@@ -9,6 +9,8 @@ import PasswordShowHide from "./components/PasswordShowHide";
 import SignUpForm from "./components/SignUpForm";
 import OtpPin from "./components/OtpPin";
 import Faq from "./components/Faq";
+import KanbanBoard from "./components/KanbanBoard";
+import FetchData from "./components/FetchData";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/counter", element: <Counter /> },
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
   { path: "/password", element: <PasswordShowHide /> },
   { path: "/otp", element: <OtpPin /> },
   { path: "/faq", element: <Faq /> },
+  // { path: "/kanban", element: <KanbanBoard /> },
+  // { path: "/datafetch", element: <FetchData /> },
 ]);
 
 const links = [
@@ -28,6 +32,8 @@ const links = [
   { link: "/password", text: "Password Show/Hide" },
   { link: "/otp", text: "Otp Pin" },
   { link: "/faq", text: "Ai Powerd Faq Component" },
+  { link: "/kanban", text: "Kanban Board" },
+  { link: "/datafetch", text: "Fetch Data" },
 ];
 
 export function App() {

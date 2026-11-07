@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import bg from '/golden_gate.png'
+
 
 export default function Clock() {
     const [time, setTime] = useState(new Date())
@@ -15,7 +15,6 @@ export default function Clock() {
     return (
         <main 
         className="w-full h-screen flex backdrop-blur-md items-center justify-center bg-cover bg-black/10 bg-center"
-            style={{ backgroundImage: `url(${bg})` }}
         >
             <div >
             </div>
