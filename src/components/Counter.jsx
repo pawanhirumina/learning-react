@@ -41,18 +41,16 @@ export default function Counter() {
 
         <div className="inline-block overflow-hidden">
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
-
-              className="text-5xl h-16 w-16 overflow-hidden flex items-center justify-center "
               key={count}
-              animate={{ y: 0, opacity: 1 }}
-              initial={{ y: direction * 10, opacity: 0 }}
-              exit={{ y: direction * -10, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 600, damping: 50 }}
-
+              className="text-5xl h-16 w-16 flex items-center justify-center"
+              initial={{ y: direction * 18, opacity: 0, scale: 0.85, filter: "blur(4px)" }}
+              animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ y: direction * -18, opacity: 0, scale: 0.85, filter: "blur(4px)" }}
+              transition={{ duration: 0.28, ease: [0, 0.71, 0.2, 1.01] }}
             >
-              {count ?? 0}
+              {count}
             </motion.span>
           </AnimatePresence>
         </div>
