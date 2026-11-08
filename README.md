@@ -35,8 +35,8 @@ The home route (`/`) lists every component with a link to its page.
 ### Install and run
 
 ```bash
-pnpm install
-pnpm dev
+npm install
+npm dev
 ```
 
 Open the URL printed by Vite (usually `http://localhost:5173`).
@@ -44,10 +44,10 @@ Open the URL printed by Vite (usually `http://localhost:5173`).
 ### Available scripts
 
 ```bash
-pnpm dev       # start the development server
-pnpm build     # create a production build in dist/
-pnpm preview   # preview the production build locally
-pnpm lint      # run ESLint
+npm dev       # start the development server
+npm build     # create a production build in dist/
+npm preview   # preview the production build locally
+npm lint      # run ESLint
 ```
 
 ## Project structure
@@ -73,10 +73,10 @@ The FAQ page includes an "Ask AI" field. It sends a `POST` request to `/api/ask`
 Start the server in a second terminal:
 
 ```bash
-AI_API_KEY=your-key pnpm server
+AI_API_KEY=your-key npm server
 ```
 
-Then keep the Vite dev server running with `pnpm dev`. Vite proxies `/api` requests to `http://localhost:3001`.
+Then keep the Vite dev server running with `npm dev`. Vite proxies `/api` requests to `http://localhost:3001`.
 
 ### How the AI answers
 
@@ -94,7 +94,7 @@ The request uses `temperature: 0.3` and `max_tokens: 300` to keep answers consis
 To replace the default instruction without editing code, set `AI_INSTRUCTION`:
 
 ```bash
-AI_INSTRUCTION="You are a concise FAQ assistant for this portfolio." pnpm server
+AI_INSTRUCTION="You are a concise FAQ assistant for this portfolio." npm server
 ```
 
 ### API contract
