@@ -1,15 +1,26 @@
+
+
+
+
+
 import { useState, useRef } from "react";
+import { motion } from "framer-motion"
 
 export default function OtpPin() {
   const [otp, setOtp] = useState(new Array(6).fill(""));
+  const [isError, setIsError] = useState(false)
   const inputRefs = useRef([]);
+
+
+  const CORRECT_OTP = "123456"
+
 
   const isComplete = otp.every((digit) => digit !== "");
   const otpValue = otp.join("");
 
   function handleChange(e, index) {
     const value = e.target.value;
-
+    setIsError(false)
     if (!/^[0-9]?$/.test(value)) return;
 
     const newOtp = [...otp];
@@ -43,17 +54,27 @@ export default function OtpPin() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!isComplete) return;
-    alert(`OTP: ${otpValue}`);
+    if (otpValue !== CORRECT_OTP) {
+      setIsError(true)
+    } else {
+      alert(`Code is ${otpValue}`)
+    }
   }
 
   return (
     <main className="w-full h-screen flex flex-col gap-6 items-center justify-center bg-slate-50">
-      <form onSubmit={handleSubmit} className="flex gap-2">
+      <p>
+        Try code : <span className="font-bold">123456</span>
+      </p>
+      <motion.form
+        animate={{ x: isError ? [0, -10, 10, -10, 10, 0] : 0 }}
+        onSubmit={handleSubmit}
+        className="flex gap-2">
         {otp.map((digit, index) => (
           <input
             key={index}
             ref={(el) => (inputRefs.current[index] = el)}
-            className="w-12 h-12 border text-center text-xl font-bold rounded-md focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900"
+            className={`w-12 h-12  ${isError ? "border-red-500 border focus:border-red-500 text-red-500 " : "border"} text-center text-xl font-bold rounded-md focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900`}
             maxLength={1}
             type="text"
             inputMode="numeric"
@@ -63,16 +84,13 @@ export default function OtpPin() {
             onPaste={handlePaste}
           />
         ))}
-      </form>
+      </motion.form>
 
       <div className="text-center">
-        <p className="text-sm text-zinc-500">
-          {isComplete ? `Code: ${otpValue}` : "Enter 6 digit code"}
-        </p>
         <button
           onClick={handleSubmit}
           disabled={!isComplete}
-          className="mt-3 bg-zinc-900 text-white py-2 px-6 rounded-md disabled:opacity-30 disabled:cursor-not-allowed"
+          className={`mt-3  ${isError ? "bg-red-500" : "bg-zinc-900"} text-white py-2 px-6 rounded-md disabled:opacity-30 disabled:cursor-not-allowed`}
         >
           Verify
         </button>
