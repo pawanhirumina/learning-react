@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion'
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(100);
   const [direction, setDirection] = useState(1)
   const [holdingPlus, setHoldingPlus] = useState(false)
   const [holdingMinus, setHoldingMinus] = useState(false)
@@ -39,12 +39,12 @@ export default function Counter() {
         </motion.button>
 
 
-        <div className="inline-block overflow-hidden">
+        <div className=" overflow-hidden">
 
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
               key={count}
-              className="text-5xl h-16 w-16 flex items-center justify-center"
+              className="text-5xl  mx-12 w-20 h-16 flex items-center justify-center"
               initial={{ y: direction * 18, opacity: 0, scale: 0.85, filter: "blur(4px)" }}
               animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
               exit={{ y: direction * -18, opacity: 0, scale: 0.85, filter: "blur(4px)" }}
@@ -54,6 +54,7 @@ export default function Counter() {
             </motion.span>
           </AnimatePresence>
         </div>
+
         <motion.button
           tap={{ hold: 0.5, repeat: 0.1 }}
           onTapStart={() => {
