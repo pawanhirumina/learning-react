@@ -11,6 +11,7 @@ import OtpPin from "./components/OtpPin";
 import Faq from "./components/Faq";
 import CounterAnimated from "./components/CounterAnimated";
 import KanbanBoard from "./components/KanbanBoard";
+import Slider from "./components/Slider"
 import FetchData from "./components/FetchData";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
   { path: "/kanban", element: <KanbanBoard /> },
   // { path: "/datafetch", element: <FetchData /> },
   { path: "/counter-animated", element: <CounterAnimated /> },
+  { path: "/slider", element: <Slider /> },
 ]);
 const links = [
   { link: "/counter", text: "Counter", desc: "Slide + fade counter with hold-to-repeat" },
@@ -36,6 +38,7 @@ const links = [
   { link: "/kanban", text: "Kanban Board", desc: "Drag and drop tasks" },
   // { link: "/datafetch", text: "Fetch Data", desc: "Fetch and display API data" },
   { link: "/counter-animated", text: "Counter Animated", desc: "Number roller with spring animation" },
+  { link: "/slider", text: "Animated Slider", desc: "Slider with sprint animation" },
 ];
 export function App() {
   return (
