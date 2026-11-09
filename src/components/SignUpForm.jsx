@@ -22,7 +22,7 @@ export default function SignUpForm() {
   }
   return (
     <main className="flex w-full h-screen">
-      <div className="hidden md:flex md:w-[50%] items-center justify-center bg-zinc-900">
+      <div className="hidden md:flex md:w-[50%] items-center justify-center bg-zinc-950">
         <div className="text-center">
           <h1 className="text-4xl text-white font-bold">Create Account</h1>
           <p className="text-zinc-400 mt-2">Test your validation logic here</p>

@@ -7,7 +7,7 @@ export default function Counter() {
   const [holdingMinus, setHoldingMinus] = useState(false)
 
   return (
-    <main className="w-full h-screen flex-col flex items-center justify-center">
+    <main className="w-full h-screen flex-col flex items-center justify-center bg-zinc-950 text-white">
       <div className="flex gap-6 ">
         <motion.button
           tap={{ hold: 0.5, repeat: 0.1 }}

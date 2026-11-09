@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion"
 export default function PasswordShowHide() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,26 +23,33 @@ export default function PasswordShowHide() {
   }
 
   return (
-    <div className="min-h-screen grid place-items-center bg-zinc-50 p-6">
-      <div className="w-full max-w-sm bg-white border border-zinc-200 rounded-xl p-5 space-y-3">
+    <div className="min-h-screen bg-zinc-800 grid place-items-center bg-zinc-50 p-6">
+      <div className="w-full max-w-sm text-white bg-zinc-950 border border-zinc-950 rounded-xl p-5 space-y-3">
         <h2 className="text-center">Password Show/Hide Toggle</h2>
-        <div className="">
-          <input
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              if (error) setError("");
-            }}
-            type={show ? "text" : "password"}
-            className="py-2 px-3 border"
-            placeholder="enter your password"
-          />
-          <button
-            className="border py-2 px-3 mx-2"
-            onClick={() => setShow((prev) => !prev)}
-          >
-            {!show ? "Show" : "Hide"}
-          </button>
+        <div>
+          <AnimatePresence mode="popLayout" initial={false}>
+            <div className="flex gap-2">
+
+
+              <motion.input
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  if (error) setError("");
+                }}
+                type={show ? "text" : "password"}
+                className="py-2 px-3 border"
+                placeholder="enter your password"
+              />
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                className="cursor-pointer border flex-1 py-2 px-3"
+                onClick={() => setShow((prev) => !prev)}
+              >
+                {!show ? "Show" : "Hide"}
+              </motion.button>
+            </div>
+          </AnimatePresence>
           <div>
             <button
               onClick={checkPassword}
@@ -55,6 +63,6 @@ export default function PasswordShowHide() {
           {error}
         </p>
       </div>
-    </div>
+    </div >
   );
 }
