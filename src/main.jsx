@@ -12,6 +12,7 @@ import Faq from "./components/Faq";
 import CounterAnimated from "./components/CounterAnimated";
 import KanbanBoard from "./components/KanbanBoard";
 import Slider from "./components/Slider"
+import MagneticButton from "./components/MagneticButton"
 import FetchData from "./components/FetchData";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   // { path: "/datafetch", element: <FetchData /> },
   { path: "/counter-animated", element: <CounterAnimated /> },
   { path: "/slider", element: <Slider /> },
+  { path: "/magnetic-button", element: <MagneticButton /> },
 ]);
 const links = [
   { link: "/counter", text: "Counter", desc: "Slide + fade counter with hold-to-repeat" },
@@ -39,6 +41,7 @@ const links = [
   // { link: "/datafetch", text: "Fetch Data", desc: "Fetch and display API data" },
   { link: "/counter-animated", text: "Counter Animated", desc: "Number roller with spring animation" },
   { link: "/slider", text: "Animated Slider", desc: "Slider with sprint animation" },
+  { link: "/magnetic-button", text: "Magnetic Button", desc: "Button that follows the cursor" },
 ];
 export function App() {
   return (
