@@ -14,12 +14,14 @@ import KanbanBoard from "./components/KanbanBoard";
 import Slider from "./components/Slider"
 import MagneticButton from "./components/MagneticButton"
 import TabPill from "./components/TabPill"
+import PricingToggle from "./components/PricingToggle"
 import FetchData from "./components/FetchData";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/counter", element: <Counter /> },
   { path: "/notes", element: <Notes /> },
   { path: "/tabpill", element: <TabPill /> },
+  { path: "/pricing", element: <PricingToggle /> },
   { path: "/clock", element: <Clock /> },
   { path: "/signup", element: <SignUpForm /> },
   { path: "/password", element: <PasswordShowHide /> },
@@ -34,6 +36,7 @@ const links = [
   { link: "/counter", text: "Counter", desc: "Slide + fade counter with hold-to-repeat" },
   { link: "/notes", text: "Notes App", desc: "Create, edit and delete notes" },
   { link: "/clock", text: "Clock", desc: "Live clock with smooth updates" },
+  { link: "/pricing", text: "Pricing Table", desc: "Pricing Table animated with framer motion" },
   { link: "/tabpill", text: "Tab Pills", desc: "Animated Tab with pills" },
   { link: "/signup", text: "Signup Page", desc: "Form with validation and states" },
   { link: "/password", text: "Password Show / Hide", desc: "Toggle password visibility" },
