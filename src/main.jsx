@@ -13,18 +13,19 @@ import CounterAnimated from "./components/CounterAnimated";
 import KanbanBoard from "./components/KanbanBoard";
 import Slider from "./components/Slider"
 import MagneticButton from "./components/MagneticButton"
+import TabPill from "./components/TabPill"
 import FetchData from "./components/FetchData";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/counter", element: <Counter /> },
   { path: "/notes", element: <Notes /> },
+  { path: "/tabpill", element: <TabPill /> },
   { path: "/clock", element: <Clock /> },
   { path: "/signup", element: <SignUpForm /> },
   { path: "/password", element: <PasswordShowHide /> },
   { path: "/otp", element: <OtpPin /> },
   { path: "/faq", element: <Faq /> },
   { path: "/kanban", element: <KanbanBoard /> },
-  // { path: "/datafetch", element: <FetchData /> },
   { path: "/counter-animated", element: <CounterAnimated /> },
   { path: "/slider", element: <Slider /> },
   { path: "/magnetic-button", element: <MagneticButton /> },
@@ -33,12 +34,12 @@ const links = [
   { link: "/counter", text: "Counter", desc: "Slide + fade counter with hold-to-repeat" },
   { link: "/notes", text: "Notes App", desc: "Create, edit and delete notes" },
   { link: "/clock", text: "Clock", desc: "Live clock with smooth updates" },
+  { link: "/tabpill", text: "Tab Pills", desc: "Animated Tab with pills" },
   { link: "/signup", text: "Signup Page", desc: "Form with validation and states" },
   { link: "/password", text: "Password Show / Hide", desc: "Toggle password visibility" },
   { link: "/otp", text: "OTP Pin", desc: "6-digit OTP, shakes on wrong code" },
   { link: "/faq", text: "AI Powered FAQ", desc: "FAQ with smooth expand animation" },
   { link: "/kanban", text: "Kanban Board", desc: "Drag and drop tasks" },
-  // { link: "/datafetch", text: "Fetch Data", desc: "Fetch and display API data" },
   { link: "/counter-animated", text: "Counter Animated", desc: "Number roller with spring animation" },
   { link: "/slider", text: "Animated Slider", desc: "Slider with sprint animation" },
   { link: "/magnetic-button", text: "Magnetic Button", desc: "Button that follows the cursor" },

@@ -20,7 +20,6 @@ export default function FetchData() {
   if (loading) return <p>Loading....</p>;
   if (!data) return <p>No Data</p>;
 
-  // ✅ Now it's safe to access data, because we know it exists
   const frontend = data.endpoints.STACK.frontend;
   const pc = data.endpoints.PC;
 
