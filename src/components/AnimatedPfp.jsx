@@ -29,7 +29,7 @@ export default function AnimatedPfp() {
     return (
         <main className="w-full flex items-center justify-center h-screen bg-zinc-950">
             <div>
-                <motion.div onMouseEnter={() => radius.set(200)} onMouseLeave={() => radius.set(0)} whileHover={{ scale: 1.04 }} onMouseMove={handleMouseMove} className="relative w-64 h-64">
+                <motion.div onMouseEnter={() => radius.set(180)} onMouseLeave={() => radius.set(0)} whileHover={{ scale: 1.04 }} onMouseMove={handleMouseMove} className="cursor-none relative w-64 h-64">
                     <img
 
                         src={pfpUrl}
