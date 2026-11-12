@@ -13,6 +13,15 @@ A collection of small React components built while learning React. Each componen
 | `/password` | `PasswordShowHide`   | Derived state, show/hide toggle, validation feedback    |
 | `/otp`      | `OtpPin`             | Refs, auto-focus, keyboard handling, paste support      |
 | `/faq`      | `Faq`                | Accordion animation with Framer Motion, AI query input  |
+| `/pfp`      | `AnimatedPfp`        | CSS/animation-based profile avatar effects              |
+| `/tabpill`  | `TabPill`            | Animated tab switching UI                               |
+| `/pricing`  | `PricingToggle`      | Toggleable pricing table with motion transitions        |
+| `/kanban`   | `KanbanBoard`        | Drag-and-drop task board layout                         |
+| `/counter-animated` | `CounterAnimated` | Animated number transition and spring motion          |
+| `/slider`   | `Slider`             | Animated slider with smooth transitions                |
+| `/magnetic-button` | `MagneticButton` | Cursor-following magnetic button interaction          |
+| `/fetch-data` | `FetchData`         | Fetching remote data and rendering async results        |
+| `/faq-ai`   | `FaqAI`              | AI-powered FAQ interaction flow                        |
 
 The home route (`/`) lists every component with a link to its page.
 
