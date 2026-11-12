@@ -15,9 +15,11 @@ import Slider from "./components/Slider"
 import MagneticButton from "./components/MagneticButton"
 import TabPill from "./components/TabPill"
 import PricingToggle from "./components/PricingToggle"
+import AnimatedPfp from './components/AnimatedPfp'
 import FetchData from "./components/FetchData";
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
+  { path: "/pfp", element: <AnimatedPfp /> },
   { path: "/counter", element: <Counter /> },
   { path: "/notes", element: <Notes /> },
   { path: "/tabpill", element: <TabPill /> },
@@ -33,6 +35,7 @@ const router = createBrowserRouter([
   { path: "/magnetic-button", element: <MagneticButton /> },
 ]);
 const links = [
+  { link: "/pfp", text: "Animated PFP", desc: "Animated profile picture" },
   { link: "/counter", text: "Counter", desc: "Slide + fade counter with hold-to-repeat" },
   { link: "/notes", text: "Notes App", desc: "Create, edit and delete notes" },
   { link: "/clock", text: "Clock", desc: "Live clock with smooth updates" },
@@ -46,6 +49,7 @@ const links = [
   { link: "/counter-animated", text: "Counter Animated", desc: "Number roller with spring animation" },
   { link: "/slider", text: "Animated Slider", desc: "Slider with sprint animation" },
   { link: "/magnetic-button", text: "Magnetic Button", desc: "Button that follows the cursor" },
+
 ];
 export function App() {
   return (
