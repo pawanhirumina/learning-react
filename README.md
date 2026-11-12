@@ -2,6 +2,8 @@
 
 A collection of small React components built while learning React. Each component lives on its own route and focuses on a specific concept, from state and effects to forms, validation, and animation.
 
+
+[![wakatime](https://wakatime.com/badge/user/a2cfa906-b212-4ea8-b910-43c50fccc8ef/project/e5cc1d08-cd20-494b-9821-9cb4d7bfc322.svg)](https://wakatime.com/@pawanhirumina/projects/spxhsslnyu)
 ## Components
 
 | Route       | Component            | What it practices                                      |
