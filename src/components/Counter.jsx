@@ -12,7 +12,7 @@ export default function Counter() {
         <motion.button
           tap={{ hold: 0.5, repeat: 0.1 }}
           whileTap={{ scale: 0.9 }}
-          className="relative overflow-hidden w-12 h-12 rounded-full cursor-pointer bg-zinc-100 font-bold text-green-900 border m-1"
+          className="relative overflow-hidden w-12 h-12 rounded-full cursor-pointer bg-zinc-900 font-bold text-green-900 m-1"
           onTapStart={() => {
             setHoldingPlus(true);
             setCount((prev) => prev + 1);
@@ -73,7 +73,7 @@ export default function Counter() {
             }
           }}
           whileTap={{ scale: 0.9 }}
-          className="relative overflow-hidden w-12 h-12 rounded-full cursor-pointer bg-zinc-100 font-bold text-red-900  border m-1"
+          className="relative overflow-hidden w-12 h-12 rounded-full cursor-pointer bg-zinc-900 font-bold text-red-900  m-1"
         >
           <h1 className="relative z-10">
 
